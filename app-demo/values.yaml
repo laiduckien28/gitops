@@ -8,7 +8,7 @@ image:
   repository: harbor.anct.local/gitops/demo-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "kienld_f0998ea8"
+  tag: "14072024"
 
 imagePullSecrets:
 - name: gitops
