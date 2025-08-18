@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-config
+  namespace: openshift-config
+  labels:
+    gitops-managed: "true"
+data:
+  clusterName: example-openshift-cluster
+  description: "Cluster configuration for OpenShift managed by GitOps"
