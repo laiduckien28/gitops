@@ -11,3 +11,17 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: kienld
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kienld-cluster-status
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-status
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: kienld
