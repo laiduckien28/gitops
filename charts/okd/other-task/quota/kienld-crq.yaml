@@ -11,7 +11,7 @@ spec:
       services.loadbalancers: '0'
       persistentvolumeclaims: '20'
       ephemeral-storage: 20Gi
-      ac-bronze-single.storageclass.storage.k8s.io/requests.storage: 1800Gi
+      ceph-blok.storageclass.storage.k8s.io/requests.storage: 100Gi
       pods: '100'
       requests.storage: 100Gi
       requests.memory: 20Gi
