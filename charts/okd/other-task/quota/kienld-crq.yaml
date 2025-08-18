@@ -14,5 +14,4 @@ spec:
     configmaps: '10'             
     persistentvolumeclaims: '5'  
     requests.storage: 50Gi        
-  scopes:
-    - Terminating
+
