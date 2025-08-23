@@ -14,6 +14,10 @@ spec:
         app: jobhunter-fe
     spec:
       serviceAccountName: pipeline   
+      hostAliases:
+      - ip: "10.40.1.138"
+        hostnames:
+        - "registry.fis.local"
 
       containers:
         - name: jobhunter-fe
