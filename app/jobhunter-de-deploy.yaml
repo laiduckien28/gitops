@@ -4,6 +4,8 @@ metadata:
   name: jobhunter-fe
   namespace: ac-dev
 spec:
+  revisionHistoryLimit: 2   # chỉ giữ 2 revision gần nhất
+
   replicas: 1
   selector:
     matchLabels:
