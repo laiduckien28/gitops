@@ -18,12 +18,17 @@ spec:
       - ip: "10.40.1.138"
         hostnames:
         - "registry.fis.local"
+      securityContext:
+        fsGroup: 1000   # cho phép container user ghi file trong /app
       containers:
         - name: jobhunter-fe
           image: kienld/frontend-app:v1
-
           ports:
             - containerPort: 3000
+          securityContext:
+            runAsUser: 1000   # chạy bằng user non-root (1000)
+            runAsGroup: 1000
+            allowPrivilegeEscalation: false
 ---
 apiVersion: v1
 kind: Service
