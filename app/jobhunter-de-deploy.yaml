@@ -5,7 +5,7 @@ metadata:
   name: jobhunter-fe
   namespace: ac-dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: jobhunter-fe
@@ -20,7 +20,7 @@ spec:
         - "registry.fis.local"
       containers:
         - name: jobhunter-fe
-          image: registry.fis.local/public-repo/fe:latest   
+          image: 10.40.1.138/public-repo/fe:latest
           ports:
             - containerPort: 3000
 ---
