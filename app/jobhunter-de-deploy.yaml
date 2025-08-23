@@ -14,6 +14,10 @@ spec:
       labels:
         app: jobhunter-fe
     spec:
+      hostAliases:
+      - ip: "10.40.1.138"
+        hostnames:
+        - "registry.fis.local"
       containers:
         - name: jobhunter-fe
           image: registry.fis.local/public-repo/fe:latest   
