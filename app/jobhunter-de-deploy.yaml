@@ -20,7 +20,7 @@ spec:
         - "registry.fis.local"
       containers:
         - name: jobhunter-fe
-          image: 10.40.1.138/public-repo/fe:latest
+          image: kienld/fe:v3
           ports:
             - containerPort: 3000
 ---
