@@ -17,7 +17,7 @@ spec:
 
       containers:
         - name: jobhunter-fe
-          image: kienld/frontend-app:v1
+          image: "10.40.1.138/public-repo/fe:latest"
           ports:
             - containerPort: 5173
 ---
