@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: jobhunter-fe
-          image: registry.fis.local/public-repo:latest   # Tekton build push lên
+          image: registry.fis.local/public-repo/fe:latest   
           ports:
             - containerPort: 3000
 ---
