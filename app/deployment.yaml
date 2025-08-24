@@ -15,6 +15,10 @@ spec:
       labels:
         app: jobhunter-fe
     spec:
+      hostAliases:
+      - ip: "10.40.1.121"
+        hostnames:
+        - "be.apps.okd4.fis.local"
       serviceAccountName: pipeline   
       containers:
         - name: jobhunter-fe
