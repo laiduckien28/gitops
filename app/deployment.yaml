@@ -36,5 +36,5 @@ spec:
     app: jobhunter-fe
   ports:
     - protocol: TCP
-      port: 443
+      port: 80
       targetPort: 3000
