@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jobhunter-be
+  namespace: ac-dev
+spec:
+  revisionHistoryLimit: 2   # chỉ giữ 2 revision gần nhất
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jobhunter-be
+  template:
+    metadata:
+      labels:
+        app: jobhunter-be
+    spec:
+      serviceAccountName: pipeline
+      containers:
+        - name: jobhunter-be
+          image: "10.40.1.138/public-repo/be:20250824063940"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://cluster1-haproxy.openshift-operators.svc.cluster.local/jobhunter"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "LajN#B^Fz0(FvpEZj~"
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: "update"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jobhunter-be
+  namespace: ac-dev
+spec:
+  selector:
+    app: jobhunter-be
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
