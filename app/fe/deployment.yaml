@@ -37,7 +37,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3000
-  template:
-    spec:
-      containers:
-        - image: 10.40.1.138/public-repo/fe:29f6ae40
+
