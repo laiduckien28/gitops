@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: fe
+  namespace: ac-dev
+  labels:
+    app.kubernetes.io/instance: release-fe
+spec:
+  to:
+    kind: Service
+    name: jobhunter-fe
+  tls: null
+  host: fe.apps.okd4.fis.local
+  port:
+    targetPort: 3000
