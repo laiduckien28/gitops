@@ -4,8 +4,7 @@ metadata:
   name: jobhunter-fe
   namespace: ac-dev
 spec:
-  revisionHistoryLimit: 2   # chỉ giữ 2 revision gần nhất
-
+  revisionHistoryLimit: 2 # chỉ giữ 2 revision gần nhất
   replicas: 1
   selector:
     matchLabels:
@@ -16,13 +15,13 @@ spec:
         app: jobhunter-fe
     spec:
       hostAliases:
-      - ip: "10.40.1.121"
-        hostnames:
-        - "be.apps.okd4.fis.local"
-      serviceAccountName: pipeline   
+        - ip: "10.40.1.121"
+          hostnames:
+            - "be.apps.okd4.fis.local"
+      serviceAccountName: pipeline
       containers:
         - name: jobhunter-fe
-          image: "10.40.1.138/public-repo/fe:20250824144718"
+          image: "10.40.1.138/public-repo/fe:29f6ae40"
           ports:
             - containerPort: 3000
 ---
@@ -38,3 +37,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3000
+  template:
+    spec:
+      containers:
+        - image: 10.40.1.138/public-repo/fe:29f6ae40
