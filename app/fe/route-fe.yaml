@@ -13,3 +13,4 @@ spec:
   host: fe.apps.okd4.fis.local
   port:
     targetPort: 80
+
