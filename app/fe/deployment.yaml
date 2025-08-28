@@ -21,7 +21,7 @@ spec:
       serviceAccountName: pipeline
       containers:
         - name: jobhunter-fe
-          image: "10.40.1.138/public-repo/fe:e67cca5a"
+          image: "10.40.1.138/public-repo/fe:70c7427c"
           ports:
             - containerPort: 80
 ---
