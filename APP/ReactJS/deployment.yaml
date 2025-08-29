@@ -21,7 +21,11 @@ spec:
       serviceAccountName: pipeline
       containers:
         - name: jobhunter-fe
+<<<<<<< HEAD:APP/ReactJS/deployment.yaml
           image: "10.40.1.142/repo-lab/react-frontend:latest"
+=======
+          image: "10.40.1.138/public-repo/fe:70c7427c"
+>>>>>>> 0362b3449ef77c53b568c8556b4c01f1799f4c2b:app/fe/deployment.yaml
           ports:
             - containerPort: 80
 ---
@@ -37,4 +41,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-
