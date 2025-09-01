@@ -21,7 +21,7 @@ spec:
       serviceAccountName: pipeline
       containers:
         - name: jobhunter-fe
-          image: "10.40.1.142/repo-lab/react-frontend:latest"
+          image: "172.30.18.71:5003/repository/private-repository/react-frontend:8388997c"
           ports:
             - containerPort: 80
 ---
