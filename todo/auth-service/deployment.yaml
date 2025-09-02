@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: auth-service
-          image: 172.30.18.71:5003/repository/private-repository/auth-service:latest
+          image: 172.30.18.71:5003/repository/private-repository/todo-auth-service:4c07ed6f
           ports:
             - containerPort: 3100 # Gin HTTP
             - containerPort: 3101 # gRPC
