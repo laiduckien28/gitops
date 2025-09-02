@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: todo-fe
-          image: 172.30.18.71:5003/repository/private-repository/todo-fe:latest
+          image: 172.30.18.71:5003/repository/todo-repository/todo-fe:latest
           ports:
             - containerPort: 3000
           resources:
