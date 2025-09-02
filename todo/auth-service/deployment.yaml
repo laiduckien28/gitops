@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-service
+  labels:
+    app: auth-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-service
+  template:
+    metadata:
+      labels:
+        app: auth-service
+    spec:
+      containers:
+        - name: auth-service
+          image: 172.30.18.71:5003/repository/private-repository/auth-service:latest
+          ports:
+            - containerPort: 3100 # Gin HTTP
+            - containerPort: 3101 # gRPC
+          env:
+            - name: DB_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: db_dsn
+            - name: GIN_PORT
+              value: "3100"
+            - name: GRPC_PORT
+              value: "3101"
+            - name: GRPC_USER_ADDRESS
+              value: "user-service:3201"
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: jwt_key
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
