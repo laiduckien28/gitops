@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tyk-gateway
+  labels:
+    app: tyk-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tyk-gateway
+  template:
+    metadata:
+      labels:
+        app: tyk-gateway
+    spec:
+      containers:
+        - name: tyk-gateway
+          image: docker.tyk.io/tyk-gateway/tyk-gateway:latest   
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: tyk-config
+              mountPath: /opt/tyk-gateway/tyk.conf
+              subPath: tyk.standalone.conf
+            - name: tyk-apps
+              mountPath: /opt/tyk-gateway/apps
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+      volumes:
+        - name: tyk-config
+          configMap:
+            name: tyk-config
+        - name: tyk-apps
+          configMap:
+            name: tyk-apps
