@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-fe
+  labels:
+    app: todo-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-fe
+  template:
+    metadata:
+      labels:
+        app: todo-fe
+    spec:
+      containers:
+        - name: todo-fe
+          image: 172.30.18.71:5003/repository/private-repository/toto-fe:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
